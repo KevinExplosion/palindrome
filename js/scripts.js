@@ -11,3 +11,19 @@ function palindrome(word) {
 
   return false;
 }
+
+$(function() {
+  $("form#palindrome").submit(function(event) {
+    var userInput = $("input#palindromeInput").val();
+    var palindromeInput = palindrome(userInput);
+    if (palindromeInput === true) {
+      $("#result").append("<p>It IS a palindrome</p>");
+    } else {
+      $("#result").append("<p>It is NOT a palindrome</p>");
+    }
+
+    $("#result").show();
+
+    event.preventDefault();
+  });
+});
